@@ -1,0 +1,17 @@
+{
+    "TRAVEL_X": 0,
+    "TRAVEL_Y": 0,
+    "travelling": false,
+    "invert": false,
+    "ANGLE": [
+        67,
+        65,
+        60,
+        60
+    ],
+    "strength": 0,
+    "dist_wall": 0,
+    "pause": 0,
+    "start_time": 0,
+    "TURN_ON": true
+}
