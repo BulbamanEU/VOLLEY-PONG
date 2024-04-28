@@ -76,8 +76,8 @@ def choose_strength(time):
         strength = 2
     elif time < 3:
         strength = 3
-    elif time < 4:
-        strength = 4
+    else:
+        strength = 3
 
     return strength
 
