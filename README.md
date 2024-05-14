@@ -96,7 +96,7 @@ class Rectangle(width_and_height, GameObject):
 ### Polymorphism
 
 <p>Šis objektyvinio programavimo principas naudojamas, kai skirtingos klasės turi vienodus funkcijų pavadinimus, bet skirtingus jų veikimus, dėl to yra įmanomas klasių funkcijų iškvietimas nepaisant kuri klasė būtų.</p>
-<p>Tai tikrai patogu žaidimo kūrimui, kai reikia piešti įvairius objektus, tokius kaip apskritimus, stačiakampius ar žaidėjus, ir visi jie turi vienodą funkciją, bet vykdo skirtingus veiksmus, priklausomai nuo to, kokia yra klasė.</p>
+<p>Tai tikrai patogu žaidimo kūrimui, kai reikia piešti įvairius objektus, tokius kaip apskritimus, stačiakampius ar žaidėjus, ir visi jie turi vienodą funkciją, bet vykdo skirtingus veiksmus priklausomai nuo to, kokia yra klasė.</p>
 
 ```python
     def draw(self, screen):
