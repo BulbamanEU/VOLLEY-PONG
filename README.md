@@ -1,12 +1,3 @@
-# VOLLEY-PONG
-Kursinis darbas, žaidimas ,,VOLLEY PONG" python programavimo kalba.
+# VOLLEY-PONG GAME
+</p>Volley-Pong žaidimas, parašytas Python programavimo kalba.<br>
 
-# dopa?
-
-dopa down
-
-1. dopa
-2. dopa
-
-* dopa
-* dpoa
