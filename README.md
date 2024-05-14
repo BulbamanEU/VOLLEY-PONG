@@ -52,7 +52,7 @@ class Player(width_and_height, GameObject):
 
 ### Encapsulation
 
-<p>Programoje encapsulation naudojama tokiems kuriamų objektų dydžiams kaip plotis, aukštis, spalva, tam kad būtų sunkiau juos pakeisti ar pasiekti kode.<br>
+<p>Programoje inkapsuliavimas naudojama tokiems kuriamų objektų dydžiams kaip plotis, aukštis, spalva, tam kad būtų sunkiau juos pakeisti ar pasiekti kode.<br>
 Aukščio ar pločio gavimui naudojama atskira funkcija, kuri grąžina reikiamą reikšmę.</p>
 
 ### Inheritance
@@ -89,7 +89,7 @@ class Rectangle(width_and_height, GameObject):
         pygame.draw.rect(screen, self._color, self.rect)
 ```
 
-<p>Šis pavyzdys tinka ir encapsulation pavaizduoti.</p>
+<p>Šis pavyzdys tinka ir inkapsuliacijai pavaizduoti.</p>
 
 <p>Abstrakcinės klasės yra patogus ir aiškus būdas aprašyti interface'ą. Tai leidžia vaikinėms klasėms turėti vienodus funkcijų pavadinimus, bet ir reikalauja parašyti atitinkamus tų funkcijų veikimus.</p>
 
@@ -251,3 +251,5 @@ class TestGame(unittest.TestCase):
 <p>Dirbant su didesniu projektu negu įprastai supratau kaip praktiškai naudoti Design Patterns ir OPP pillars apie, kuriuos mokiausi paskaitose. Daug labiau pradėjau vertinti jų svarbą kode.</p>
 
 <p>Sunku buvo skaičiuoti kamuoliuko keliavimą ir tinkamai išsaugoti reikšmes, visas būsenas, kad žaidimą vėl įjungus būtų pratęsta. Išmokau naudoti unittest module, supratau kokie naudingi yra testai kode, kaip galima jais naudotis ir surasti klaidos vietą.</p>
+
+<p>Toliau galima užbaigti žaidimo prototipą iki galutinio produkto, suteikti visiems objektams gražesnius paveikslėlius, įtraukti priešo lygio pasirinkimą, sudaryti įvairesnius atmušimo stiprumus, toliau gerinti mechanikas. Galima sukurti kelis skirtingas aikšteles, tarkim su aukštesniu ar žemesniu stogu, be stogo, aukštesniu tinklu ir pan. Prototipas ir pats žaidimas veikia labai paprastu principu, bet yra daug galimybių įtraukti daugiau funkcijų ir suteikti daugiau galimybių, veiksmų veikėjui atslikti.</p>
