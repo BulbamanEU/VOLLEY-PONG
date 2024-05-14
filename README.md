@@ -210,7 +210,7 @@ class ObjectFactory(ABC):
 
 ### Testing
 
-<p>Svarbiausios formulės, kurios naudojamos žaidime testuojamos: kamuoliuko pabaigos apskaičiavimas, kamuoliuko stiprumo atmušimas, kamuoliuko atsimušimas nuo sienų.</p>
+<p>Svarbiausios formulės, kurios naudojamos žaidime testuojamos: kamuoliuko pabaigos koordinatės apskaičiavimas, kamuoliuko atsimušimo stiprumas, kamuoliuko atsimušimas nuo sienų.</p>
 
 ```python
 class TestGame(unittest.TestCase):
@@ -238,15 +238,17 @@ class TestGame(unittest.TestCase):
 
 <ul>
   <li>Parašytas veikiantis žaidimo prototipas, kurį galima toliau tobulinti ir gauti galutinį produktą.</li>
-  <li>Kodu stengtasi atitikti PEP8 stilių ir reikalavimus</li>
-  <li>Pasiektas žaidėjo, tinklo, kompiuterio ir kamuoliuko fizinis veikimas ir tarpusavio sąsaja</li>
-  <li>Įgyvendinta būsenos išsaugojimas, rašymas į failą</li>
-  <li>Įgyvendintas testavimas</li>
+  <li>Kodu stengtasi atitikti PEP8 stilių ir reikalavimus, kad kodas būtų lengviau skaitomas ir suprantamas kitiems koduotojams.</li>
+  <li>Pasiektas žaidėjo, tinklo, kompiuterio ir kamuoliuko fizinis veikimas ir tarpusavio sąsaja.</li>
+  <li>Įgyvendintas būsenos išsaugojimas, rašymas į failą.</li>
+  <li>Įgyvendintas testavimas.</li>
 </ul>
 
 # Išvados
 
 <p>Atliekant kursinį darbą susipažinau su PEP8 kodavimo reikalavimais ir stengiausi jų laikytis. Susidūriau su iššūkiais kaip teisingai dėlioti ir kontroliuoti kodą, kai prisikaupia funkcijų, kintamųjų, kaip gražinti ir aiškiai rašyti kodą, kelti į skirtingus failus.</p>
+
+<p>Susipažinau ir savo kode naudojau pygame module, kuris pagrinde naudojamas 2D žaidimų kūrimui ir atveria grafikų nustatymus, klaviatūros, pelės įėjimo skaitymą, įvykių tvarkymą, garso kontroliavimą ir panašias atributikas naudojamas žaidimuose. </p>
 
 <p>Dirbant su didesniu projektu negu įprastai supratau kaip praktiškai naudoti Design Patterns ir OPP pillars apie, kuriuos mokiausi paskaitose. Daug labiau pradėjau vertinti jų svarbą kode.</p>
 
