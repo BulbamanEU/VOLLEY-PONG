@@ -246,7 +246,7 @@ class TestGame(unittest.TestCase):
 
 # Išvados
 
-<p>Atliekant kursinį darbą susipažinau su PEP8 kodavimo reikalavimais ir stengiausi jų laikytis. Susidūriau su iššūkiais kaip teisingai dėlioti ir kontroliuoti kodą, kai prisikaupia funkcijų, kintamųjų, kaip gražinti ir aiškiai rašyti kodą, kelti į skirtingus failus.</p>
+<p>Atliekant kursinį darbą susipažinau su PEP8 kodavimo reikalavimais ir stengiausi jų laikytis. Susidūriau su iššūkiais: kaip tvarkyti kodą , kai prisikaupia funkcijų, kintamųjų, kaip gražinti ir aiškiai rašyti kodą, kelti į skirtingus failus. Be to padalinus kodą į skirtingus failus tapo daug lengviau identifikuoti klaidas ,bei jas pašalinti.</p>
 
 <p>Susipažinau ir savo kode naudojau pygame module, kuris pagrinde naudojamas 2D žaidimų kūrimui ir atveria grafikų nustatymus, klaviatūros, pelės įėjimo skaitymą, įvykių tvarkymą, garso kontroliavimą ir panašias atributikas naudojamas žaidimuose. </p>
 
