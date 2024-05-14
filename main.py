@@ -2,12 +2,11 @@ import pygame
 from ball_trajectory import calculate_trajectory
 from bounce_values import update_ball
 from ball_touch import net_touch, wall_touch
-from Rec_class import screen, ball, visual, player_key, com, NET
+from Rec_class import *
 from read_values import *
 import read_values
 import json
 import math
-from Rec_class import draw_object
 import random
 
 
@@ -88,6 +87,8 @@ def play(run):
     center_y = com.y + com._height/2
 
     pygame.init()
+    end_menu_run = False
+    main_menu_run = False
 
     offset = player_key._height + ball._height/2
 
@@ -102,32 +103,31 @@ def play(run):
     else:
         time_before_pause = pause - start_time
         read_values.get_last_position(ball, com, player_key)
-        player_key.rect.center = (player_key.x+player_key._width/2, center_y)
-        com.rect.center = (com.x+com._width/2, center_y)
+        player_key.rect.center = (player_key.x+player_key.get_width()/2, center_y)
+        com.rect.center = (com.x+com.get_width()/2, center_y)
         pause = 0
         read_values.reset_values("starting_position.json", "current_position.json")
         ball, visual.center, travelling, invert, TRAVEL_X, TRAVEL_Y, pause = update_ball(ball, offset)
 
     key_s_held_time = 0
-    new_strength = 2
     max_bar_length = 200
     ending_x = 900
 
     while run:
-
-
         screen.fill((0, 0, 0))
-        draw_object(NET, screen)
-        draw_object(com, screen)
-        draw_object(player_key, screen)
-        draw_object(ball, screen)
-        draw_object(visual, screen)
+
+        for object in drawing_objects:
+            object.draw(screen)
 
         if TURN_ON:
             start_time = pygame.time.get_ticks() / 1000
             TURN_ON = False
-
         if player_key.rect.colliderect(ball.rect):
+            if ANGLE == PLAYER_ANGLE:
+                run = False
+                read_values.reset_field(ball, player_key, com, visual)
+                read_values.reset_values()
+                end_menu_run = True
             start_time = pygame.time.get_ticks() / 1000
             current_coords(TRAVEL_X, TRAVEL_Y, invert, dist_wall)
             ANGLE = PLAYER_ANGLE
@@ -151,11 +151,12 @@ def play(run):
             current_time += time_before_pause - pause
             elapsed_time = current_time - start_time
             TRAVEL_X, TRAVEL_Y = calculate_trajectory(SPEED[strength], GRAVITY, ANGLE[strength], elapsed_time)
-            invert, dist_wall = wall_touch(ball, invert, TRAVEL_X, SCREEN_WIDTH, dist_wall)
+            ball.x, invert, dist_wall = wall_touch(ball.x, invert, TRAVEL_X, SCREEN_WIDTH, dist_wall)
         else:
             read_values.reset_field(ball, player_key, com, visual)
             read_values.reset_values()
-            end_menu()
+            run = False
+            end_menu_run = True
 
         if invert:
             ball.rect.center = (ball.x+(dist_wall - TRAVEL_X), ball.y-TRAVEL_Y)
@@ -179,7 +180,8 @@ def play(run):
             read_values.last_position(ball, com, player_key)
             read_values.update_values(TRAVEL_X, TRAVEL_Y, travelling, invert, ANGLE, strength,\
                                       dist_wall, current_time, start_time, TURN_ON)
-            main_menu()
+            run = False
+            main_menu_run = True
 
         if key[pygame.K_s]:
             key_s_held_time += clock.get_time()
@@ -194,10 +196,10 @@ def play(run):
 
         COM_MOVE_SPEED = 2
         if ANGLE == PLAYER_ANGLE:
-            if com.x > ending_x-com._width/2 and not com.rect.colliderect(NET.rect):
+            if com.x > ending_x-com.get_width()/2 and not com.rect.colliderect(NET.rect):
                 com.rect.move_ip(-COM_MOVE_SPEED, 0)
                 com.x += -COM_MOVE_SPEED
-            if com.x < ending_x-com._width/2 and com.x+close_to_wall < SCREEN_WIDTH-com._width:
+            if com.x < ending_x-com.get_width()/2 and com.x+close_to_wall < SCREEN_WIDTH-com.get_width():
                 com.rect.move_ip(COM_MOVE_SPEED, 0)
                 com.x += COM_MOVE_SPEED
 
@@ -206,14 +208,22 @@ def play(run):
                 read_values.last_position(ball,com,player_key)
                 read_values.update_values(TRAVEL_X, TRAVEL_Y, travelling, invert, ANGLE, strength,\
                                           dist_wall, current_time, start_time, True)
-                pygame.quit()
+                run = False
 
         pygame.display.flip()
         clock.tick(120)
 
+    if main_menu_run:
+        main_menu()
+    if end_menu_run:
+        end_menu()
+    pygame.quit()
+
 
 def end_menu():
     run = True
+    play_run = False
+    main_menu_run = False
     font = pygame.font.Font(None, 36)
     name_font = pygame.font.Font(None, 50)
     WHITE = (255, 255, 255)
@@ -225,13 +235,20 @@ def end_menu():
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                pygame.quit()
+                run = False
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_r:
+                    run = False
                     play_run = True
-                    play(play_run)
                 if event.key == pygame.K_q:
-                    main_menu()
+                    run = False
+                    main_menu_run = True
+
+    if main_menu_run:
+        main_menu()
+    if play_run:
+        play(play_run)
+    pygame.quit()
 
 def main_menu():
 
@@ -244,8 +261,8 @@ def main_menu():
     name_font = pygame.font.Font(None, 50)
 
     play_run = False
-    menu_ON = True
-    while menu_ON:
+    run = True
+    while run:
         pygame.display.update()
         screen.fill(BLACK)
         draw_text("VOLLEY PONG", name_font, WHITE, SCREEN_WIDTH // 2, SCREEN_HEIGHT // 5)
@@ -259,15 +276,20 @@ def main_menu():
             if event.type == pygame.QUIT:
                 TURN_ON = True
                 change_TURN_ON(TURN_ON)
-                pygame.quit()
+                run = False
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
+                    run = False
                     play_run = True
-                    play(play_run)
                 if event.key == pygame.K_q:
+                    run = False
                     TURN_ON = True
                     change_TURN_ON(TURN_ON)
-                    pygame.quit()
+
+    if play_run:
+        play(play_run)
+
+    pygame.quit()
 
 main_menu()
 

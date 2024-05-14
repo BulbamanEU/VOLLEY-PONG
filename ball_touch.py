@@ -5,10 +5,10 @@ def net_touch(ball, NET, TRAVEL_Y):
     else:
         return True
 
-def wall_touch(ball, invert, TRAVEL_X, SCREEN_WIDTH, travel=0):
+def wall_touch(x, invert, TRAVEL_X, SCREEN_WIDTH, travel=0):
     if not invert:
-        if ball.x+TRAVEL_X < 0 or ball.x+TRAVEL_X > SCREEN_WIDTH:
+        if x+TRAVEL_X < 0 or x+TRAVEL_X > SCREEN_WIDTH:
             invert = True
-            ball.x += TRAVEL_X
+            x += TRAVEL_X
             travel = TRAVEL_X
-    return invert, travel
+    return x, invert, travel

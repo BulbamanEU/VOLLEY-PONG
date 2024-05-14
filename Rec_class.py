@@ -16,10 +16,22 @@ class ObjectFactory(ABC):
     def create_object(self):
         pass
 
-class Rectangle(GameObject):
-    def __init__(self, width, height, color=(255, 255, 255), x=SCREEN_WIDTH/2, y=SCREEN_HEIGHT/2):
+class width_and_height():
+
+    def __init__(self, width, height):
         self._width = width
         self._height = height
+
+    def get_height(self):
+        return self._height
+
+    def get_width(self):
+        return self._width
+
+
+class Rectangle(width_and_height, GameObject):
+    def __init__(self, width, height, color=(255, 255, 255), x=SCREEN_WIDTH/2, y=SCREEN_HEIGHT/2):
+        super().__init__(width, height)
         self._color = color
         self.x = x
         self.y = y
@@ -31,11 +43,6 @@ class Rectangle(GameObject):
     def draw(self, screen):
         pygame.draw.rect(screen, self._color, self.rect)
 
-    def get_height(self):
-        return self._height
-
-    def get_width(self):
-        return self._width
 
 class Circle(GameObject):
     def __init__(self, radius, center, color=(255, 255, 255), x=SCREEN_WIDTH/2, y=SCREEN_HEIGHT/2):
@@ -76,10 +83,9 @@ class CircleFactory(ObjectFactory):
     def create_object(self):
         return Circle(self._radius, self.center, self._color, self._x, self._y)
 
-class Player(GameObject):
+class Player(width_and_height, GameObject):
     def __init__(self, width, height, color=(255, 255, 255), x=SCREEN_WIDTH/2, y=SCREEN_HEIGHT/2):
-        self._width = width
-        self._height = height
+        super().__init__(width, height)
         self._color = color
         self.x = x
         self.y = y
@@ -90,12 +96,6 @@ class Player(GameObject):
 
     def draw(self, screen):
         pygame.draw.rect(screen, self._color, self.rect)
-
-    def get_height(self):
-        return self._height
-
-    def get_width(self):
-        return self._width
 
 class PlayerBuilder():
     def __init__(self):
@@ -125,8 +125,6 @@ class PlayerBuilder():
     def build(self):
         return Player(self._width, self._height, self._color, self._x, self._y)
 
-def draw_object(obj, screen):
-    obj.draw(screen)
 
 
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -156,3 +154,5 @@ player_key = player_builder.build()
 com = com_factory.create_object()
 ball = ball_factory.create_object()
 visual = visual_factory.create_object()
+
+drawing_objects = [NET, player_key, com, ball, visual]

@@ -3,15 +3,15 @@ from tkinter import messagebox
 import pygame
 
 SCREEN_WIDTH = 1440
-SCREEN_HEIGHT = 780
-SPEED = [1000, 1100, 1200, 1300]
+SCREEN_HEIGHT = 680
+SPEED = [1000, 1100, 1200, 1250]
 PLAYER_ANGLE = [70, 65, 60, 60]
 #COM_ANGLE = [180-angle for angle in PLAYER_ANGLE]
 COM_ANGLE = [113, 115, 120, 120]
 GRAVITY = 1000
 
 def WARNING(error_file):
-    messagebox.showwarning(title="Warning", message=(error_file+" is missing."))
+    messagebox.showwarning(title="Warning", message=(error_file+" is missing. Reinstall the game."))
     pygame.quit()
 
 def get_values():
@@ -76,16 +76,16 @@ def reset_values(source_file="start_value.json", destination_file="saved_values.
         WARNING(f"{source_file} or {destination_file}")
 
 def reset_field(ball, player_key, com, visual):
-    player_key.x = 100 + player_key._width
+    player_key.x = 100 + player_key.get_width()
     com.x = 900
-    offset = com._height/2
-    ball.x = player_key.x - ball._width / 2
+    offset = com.get_height()/2
+    ball.x = player_key.x - ball.get_width() / 2
     ball.y = player_key.y + offset
     player_key.rect.center = (player_key.x, player_key.y + offset)
-    com.rect.center = (com.x + com._width/2, com.y + offset)
+    com.rect.center = (com.x + com.get_width()/2, com.y + offset)
     ball.rect.center = (ball.x, ball.y)
     visual.center = (ball.x, ball.y)
-    player_key.x -= player_key._width/2
+    player_key.x -= player_key.get_width()/2
 
 def last_position(ball, com, player_key):
     try:
