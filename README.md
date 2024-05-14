@@ -121,7 +121,7 @@ class Rectangle(width_and_height, GameObject):
 
 ### Factory method
 
-<p>Factory metodas patogus, kai reikia kurti daug tokių pačių principų objektų. Pavyzdžiui šiame žaidime tinklo, aplinkos objektų, kamuolio kūrimas pasitelkiamas Factory metodu, kad galima būtų nesunkiai padidinti šių daiktų skaičių.</p>
+<p>Factory metodas patogus, kai reikia kurti daug tokių pačių principų objektų. Pavyzdžiui, šiame žaidime tinklo, aplinkos objektų, kamuolio kūrimas pasitelkiamas Factory metodu, kad galima būtų nesunkiai padidinti šių daiktų skaičių.</p>
 
 ```python
 class CircleFactory(ObjectFactory):
@@ -186,7 +186,7 @@ player_builder.set_position(100, 100)
 ### Abstraction class
 
 <p>Sukuriama abstrakti tėvinė klasė skirta sukurti vaikinių klasių interface'ui. Patogu po to naudoti Polymorphism'ą.</p>
-<p>Šiame kode aprašytas objektų piešimas, sūkurimas, kuris naudojamas keliose vaikinėse klasėse.</p>
+<p>Šiame kode aprašytas objektų piešimas ir sukūrimas, kurie naudojami keliose vaikinėse klasėse.</p>
 
 ```python
 class GameObject(ABC):
@@ -254,4 +254,4 @@ class TestGame(unittest.TestCase):
 
 <p>Sunku buvo skaičiuoti kamuoliuko keliavimą ir tinkamai išsaugoti reikšmes, visas būsenas, kad žaidimą vėl įjungus būtų pratęsta. Išmokau naudoti unittest module, supratau kokie naudingi yra testai kode, kaip galima jais naudotis ir surasti klaidos vietą.</p>
 
-<p>Toliau galima užbaigti žaidimo prototipą iki galutinio produkto, suteikti visiems objektams gražesnius paveikslėlius, įtraukti priešo lygio pasirinkimą, sudaryti įvairesnius atmušimo stiprumus, toliau gerinti mechanikas. Galima sukurti kelis skirtingas aikšteles, tarkim su aukštesniu ar žemesniu stogu, be stogo, aukštesniu tinklu ir pan. Prototipas ir pats žaidimas veikia labai paprastu principu, bet yra daug galimybių įtraukti daugiau funkcijų ir suteikti daugiau galimybių, veiksmų veikėjui atslikti.</p>
+<p>Toliau galima užbaigti žaidimo prototipą iki galutinio produkto, suteikti visiems objektams gražesnius paveikslėlius, įtraukti priešo lygio pasirinkimą, sudaryti įvairesnius atmušimo stiprumus, toliau gerinti mechanikas. Galima sukurti kelis skirtingas aikšteles, tarkim su aukštesniu ar žemesniu stogu, be stogo, aukštesniu tinklu ir pan. Prototipas ir pats žaidimas veikia labai paprastu principu, bet yra daug galimybių įtraukti įvairių funkcijų ir suteikti įdomesnių veiksmų naudotojui atlikti.</p>
