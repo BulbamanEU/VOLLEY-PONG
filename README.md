@@ -250,7 +250,7 @@ class TestGame(unittest.TestCase):
 
 <p>Susipažinau ir savo kode naudojau pygame module, kuris pagrinde naudojamas 2D žaidimų kūrimui ir atveria grafikų nustatymus, klaviatūros, pelės įėjimo skaitymą, įvykių tvarkymą, garso kontroliavimą ir panašias atributikas naudojamas žaidimuose. </p>
 
-<p>Dirbant su didesniu projektu negu įprastai teko naudoti Design Patterns ir OPP pillars, apie kuriuos mokiausi paskaitose, o praktiškai naudojau labaratoriniuose užsiėmimuose. Pradėjau vertinti šiuos metodus programoje ir pamačiau, kad jie drastiškai paspartina darbą.</p>
+<p>Dirbant su didesniu projektu negu įprastai teko naudoti Design Patterns ir OPP pillars, apie kuriuos mokiausi paskaitose, o praktiškai naudojau labaratoriniuose užsiėmimuose. Pradėjau vertinti šiuos metodus programoje ir pamačiau, kad jie ženkliai paspartina darbą.</p>
 
 <p>Sunku buvo skaičiuoti kamuoliuko keliavimą ir tinkamai išsaugoti reikšmes, visas būsenas, kad žaidimą vėl įjungus būtų pratęsta. Išmokau naudoti unittest module, supratau kokie naudingi yra testai kode, kaip galima jais naudotis ir surasti klaidos vietą.</p>
 
