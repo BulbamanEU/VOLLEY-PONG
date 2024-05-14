@@ -3,6 +3,8 @@
 <p>Python kursinis darbas atliktas Ginto Kukliausko EDIf-23/1</p>
 <p>Kursinio darbo metu geriau susipažinau su kodo rašymo taisyklėmis, mokiausi praktiškai naudoti objektyvinio programavimo paskaitose/laboratoriniuose išmoktą informaciją.</p>
 
+<p>Norint naudotis aplikaciją reikia atsisiųsti .zip failą visos repository ir atidaryti .exe failą.</p>
+
 # Įvadas
 
 <p></p>
@@ -10,8 +12,6 @@
 </p>Volley-Pong yra kompiuterinis žaidimas, parašytas Python programavimo kalba.<br> 
 Žaidimo esmė permušti kamuoliuką nepaliečiant tinklo ir neleidžiant kamuoliui nukristi žaidėjo pusėje.</p>
 
-<p>Norint naudotis aplikaciją reikia atsisiųsti .zip failą visos repository ir atidaryti .exe failą.
-</p>
 
 <p>Atsidarius programą pateiktos meniu komandos:
 <ul>
