@@ -3,7 +3,7 @@
 <p>Python kursinis darbas atliktas Ginto Kukliausko EDIf-23/1</p>
 <p>Kursinio darbo metu geriau susipažinau su kodo rašymo taisyklėmis, mokiausi praktiškai naudoti objektyvinio programavimo paskaitose/laboratoriniuose išmoktą informaciją.</p>
 
-<p>Norint naudotis aplikaciją reikia atsisiųsti .zip failą visos repository ir atidaryti .exe failą.</p>
+<p>Norint naudotis aplikaciją reikia atsisiųsti .zip failą visos repository ir atidaryti VolleyPong.exe failą.</p>
 
 # Įvadas
 
