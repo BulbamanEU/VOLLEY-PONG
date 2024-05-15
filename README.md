@@ -105,7 +105,7 @@ class Rectangle(width_and_height, GameObject):
 <p>Taip atrodo stačiakampio piešimas ekrane.</p>
 
 ```python
-        def draw(self, screen):
+    def draw(self, screen):
         pygame.draw.circle(screen, self._color, self.center, self._radius)
 ```
 <p>Taip atrodo apskritimo piešimas ekrane.</p>
