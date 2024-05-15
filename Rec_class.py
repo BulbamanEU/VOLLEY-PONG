@@ -32,7 +32,7 @@ class width_and_height():
 class Rectangle(width_and_height, GameObject):
     def __init__(self, width, height, color=(255, 255, 255), x=SCREEN_WIDTH/2, y=SCREEN_HEIGHT/2):
         super().__init__(width, height)
-        self._color = color
+        self.__color = color
         self.x = x
         self.y = y
         self.create_shape()
@@ -41,19 +41,19 @@ class Rectangle(width_and_height, GameObject):
         self.rect = pygame.Rect(self.x, self.y, self._width, self._height)
 
     def draw(self, screen):
-        pygame.draw.rect(screen, self._color, self.rect)
+        pygame.draw.rect(screen, self.__color, self.rect)
 
 
 class Circle(GameObject):
     def __init__(self, radius, center, color=(255, 255, 255), x=SCREEN_WIDTH/2, y=SCREEN_HEIGHT/2):
         self._radius = radius
-        self._color = color
+        self.__color = color
         self.x = x
         self.y = y
         self.center = center
 
     def draw(self, screen):
-        pygame.draw.circle(screen, self._color, self.center, self._radius)
+        pygame.draw.circle(screen, self.__color, self.center, self._radius)
 
     def create_shape(self):
         pass
@@ -75,18 +75,18 @@ class RectangleFactory(ObjectFactory):
 class CircleFactory(ObjectFactory):
     def __init__(self, radius, center, color=(255, 255, 255), x=SCREEN_WIDTH/2, y=SCREEN_HEIGHT/2):
         self._radius = radius
-        self._color = color
+        self.__color = color
         self._x = x
         self._y = y
         self.center = center
 
     def create_object(self):
-        return Circle(self._radius, self.center, self._color, self._x, self._y)
+        return Circle(self._radius, self.center, self.__color, self._x, self._y)
 
 class Player(width_and_height, GameObject):
     def __init__(self, width, height, color=(255, 255, 255), x=SCREEN_WIDTH/2, y=SCREEN_HEIGHT/2):
         super().__init__(width, height)
-        self._color = color
+        self.__color = color
         self.x = x
         self.y = y
         self.create_shape()
@@ -95,13 +95,13 @@ class Player(width_and_height, GameObject):
         self.rect = pygame.Rect(self.x, self.y, self._width, self._height)
 
     def draw(self, screen):
-        pygame.draw.rect(screen, self._color, self.rect)
+        pygame.draw.rect(screen, self.__color, self.rect)
 
 class PlayerBuilder():
     def __init__(self):
         self._width = 125
         self._height = 25
-        self._color = (0, 255, 255)
+        self.__color = (0, 255, 255)
         self._x = SCREEN_WIDTH / 2
         self._y = SCREEN_HEIGHT - 65 - self._height
 
@@ -114,7 +114,7 @@ class PlayerBuilder():
         return self
 
     def set_color(self, color):
-        self._color = color
+        self.__color = color
         return self
 
     def set_position(self, x, y):
@@ -123,7 +123,7 @@ class PlayerBuilder():
         return self
 
     def build(self):
-        return Player(self._width, self._height, self._color, self._x, self._y)
+        return Player(self._width, self._height, self.__color, self._x, self._y)
 
 
 
