@@ -111,8 +111,8 @@ class Rectangle(width_and_height, GameObject):
 <p>Taip atrodo apskritimo piešimas ekrane.</p>
 
 ```python
-        for object in drawing_objects:
-            object.draw(screen)
+    for object in drawing_objects:
+      object.draw(screen)
 ```
 <p>Kai visi objektai yra viename masyve, juos galime visus iškviesti šiuo for ciklu.</p>
 
